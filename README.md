@@ -9,6 +9,7 @@ flink y Kafka.
 ### Prerrequisitos
 
 - [Docker Engine - Community v20.10.5](https://docs.docker.com/get-docker/)
+- [Docker compose](https://docs.docker.com/compose/install/) - generalmente disponible al instalar docker engine
 - Disponible al menos 4 Gb de memoria libres
 - [Git](https://git-scm.com/downloads)
 
