@@ -18,7 +18,7 @@ en un sistema Linux u OSX
 
 ### Ejecución en local
 
-Ejecuta `./start.sh`. Una vez el ecript muestre que esta listo para comenzar
+Ejecuta `./start.sh`. Una vez el script muestre que está listo para comenzar
 entra desde tu navegador a `http://localhost:8080` y `http:localhost:8081`
 ambas direcciones se van a utilizar durante el workshop.
 
@@ -27,8 +27,28 @@ archivo `chmod +x ./start.sh`
 
 ### Contenido
 
-Este workshop hace uso de [Zepellin](https://zeppelin.apache.org) como sistema para la ejecución de los pasos del taller, por lo que
-,su contenido esta expresado dentro de un notebook llamado 
-`flink-kafka-workshop1`
+Este workshop hace uso de [Zepellin](https://zeppelin.apache.org) como sistema para la ejecución de los pasos del taller, por lo que ,su contenido esta expresado dentro de un notebook llamado `flink-kafka-workshop1`
 
 Happy coding =)
+
+### Ejercicio
+
+En este workshop vamos a trabajar en un concepto muy utilizado en la ingeniería de datos, que es el enriquecimiento de datos.
+Vamos a tener una fuente de datos que simula el envío de transacciones que se generan al escanear un artículo en cada una da las cajas de una cadena de supermercados. Este mensaje tiene estos campos:
+
+```
+"scanItem": {
+    "tienda": 1,
+    "codigo_de_barra": "ABC-584-000",
+    "cantidad": 2,
+    "precio": 2178
+}
+````
+Dada la gran cantidad de transacciones que están pasando es recomendable que este mensaje sea lo más liviano posible, por lo que si queremos sacar información más entendible debemos crear un job que se ocupe de enriquecer este set de datos. Para esto vamos a utilizar un servicio que a partir de un código de barras nos entrega información del producto. Este servicio se encuentra en "https://kafka-flink-workshop.herokuapp.com/api/v1/products/<codigo_de_barras>" y al ser llamado con el codigo de barras nos entrega el siguiente mensaje:
+````
+Producto: {
+    codigo_de_barra: "ABC-540-000",
+    nombre: "Juice - Apple Cider",
+    departamento: "Outdoors"
+}
+```
