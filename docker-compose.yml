@@ -16,7 +16,7 @@ services:
     networks:
     - workshop
   producer:
-    image: rgaete/fake-data-producer
+    image: rnavarro23/fake-data-producer
     networks: 
     - workshop
     links:
