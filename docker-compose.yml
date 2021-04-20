@@ -1,18 +1,19 @@
 version: "3.9"
 services:
-  zepellin:
-    build: .
-    ports:
-      - "8080:8080"
-      - "8081:8081"
-    links:
-      - kafka
-    networks:
-      - workshop
-  kafka:
-    image: lensesio/fast-data-dev
-    networks:
-      - workshop
-  
+    zepellin:
+        build: .
+        ports:
+        - "8080:8080"
+        - "8081:8081"
+        links:
+        - kafka
+        networks:
+        - workshop
+        depends_on:
+        - kafka
+    kafka:
+        image: lensesio/fast-data-dev
+        networks:
+        - workshop
 networks:
-  workshop: {}  
+    workshop: {}
