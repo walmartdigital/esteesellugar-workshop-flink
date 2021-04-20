@@ -1,4 +1,7 @@
 FROM apache/zeppelin:0.9.0
+LABEL author="Walmart Chile"
+LABEL version="1.0"
+LABEL description="Workshop Apache Flink + Kafka: real time erichment"
 
 USER root
 
