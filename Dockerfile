@@ -1,4 +1,7 @@
 FROM apache/zeppelin:0.9.0
+LABEL author="Walmart Chile"
+LABEL version="1.0"
+LABEL description="Workshop Apache Flink + Kafka: real time erichment"
 
 USER root
 
@@ -18,5 +21,6 @@ RUN curl -l https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafk
 RUN curl -l https://repo1.maven.org/maven2/org/apache/flink/flink-core/1.12.2/flink-core-1.12.2.jar -o /opt/${FLINK_VERSION}/lib/flink-core-1.12.2.jar
 RUN curl -l https://repo1.maven.org/maven2/org/apache/flink/flink-clients_2.11/1.12.2/flink-clients_2.11-1.12.2.jar -o /opt/${FLINK_VERSION}/lib/flink-clients_2.11-1.12.2.jar
 RUN curl -l https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/2.7.0/kafka-clients-2.7.0.jar -o /opt/${FLINK_VERSION}/lib/kafka-clients-2.7.0.jar
+RUN curl -l https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar -o /opt/${FLINK_VERSION}/lib/gson-2.8.6.jar
 
 USER 1000
