@@ -13,6 +13,11 @@ services:
     image: lensesio/fast-data-dev
     networks:
       - workshop
+  producer:
+    image: rgaete/fake-data-producer
+    networks: 
+      - workshop
+    links: kafka  
   
 networks:
   workshop: {}  
