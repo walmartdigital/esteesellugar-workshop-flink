@@ -18,7 +18,10 @@ services:
   producer:
     image: rgaete/fake-data-producer
     networks: 
-      - workshop
-    links: kafka
+    - workshop
+    links:
+    - kafka
+    depends_on:
+    - kafka
 networks:
     workshop: {}
