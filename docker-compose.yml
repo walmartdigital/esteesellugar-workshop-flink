@@ -19,6 +19,7 @@ services:
     - workshop
   producer:
     image: rnavarro23/fake-data-producer
+    container_name: producer
     networks: 
     - workshop
     links:
