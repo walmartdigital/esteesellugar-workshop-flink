@@ -29,7 +29,12 @@ archivo `chmod +x ./start.sh`
 
 Este workshop hace uso de [Zepellin](https://zeppelin.apache.org) como sistema para la ejecución de los pasos del taller, por lo que ,su contenido esta expresado dentro de un notebook llamado `flink-kafka-workshop1`
 
-Happy coding =)
+#### Comandos utilizados
+- `docker exec -it wrokshop-real-time-enrichment_kafka_1 /bin/bash` para el acceso al contenedor de kafka
+- `kafka-topics --bootstrap-server kafka:9092 --list` Para listar los tópicos en kafka
+- `kafka-topics --bootstrap-server kafka:9092 --create --topic enriched-item` Para crear un tópico en kafka
+- `kafka-console-consumer --bootstrap-server kafka:9092 --topic enriched-item --from-beginning` Para consumir desde un tópico en kafka
+- `kafka-console-producer --bootstrap-server kafka:9092 --topic test` Para producir datos a un tópico en kafka
 
 ### Ejercicio
 
@@ -52,3 +57,5 @@ Producto: {
     departamento: "Outdoors"
 }
 ```
+
+**Happy coding =)**
