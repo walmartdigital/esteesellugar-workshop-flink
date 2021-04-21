@@ -9,7 +9,7 @@ graceful_exit() {
 trap 'graceful_exit' TERM INT HUP
 
 echo "Inicializando ambiente..."
-docker compose up -d
+docker-compose up -d
 
 echo "Esperando por Zepellin..."
 http_response=0
@@ -23,5 +23,5 @@ printf "\n\nPresione enter para detener la ejecución"
 read -r -n 1
 
 echo "Bajando ambiente..."
-docker compose down
+docker-compose down
 echo "Listo! happy coding"
