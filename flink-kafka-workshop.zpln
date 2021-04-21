@@ -1,9 +1,9 @@
 ﻿{
   "paragraphs": [
     {
-      "text": "%md\n# Enriquecimiento de datos en tiempo real\n\nEn este workshop veremos como enriquecer datos de un stream en tiempo real, haciendo uso de Kafka como fuente de datos y una API externa que nos provee la información adicional que necesitamos.\n\n## Conceptos\n\n- **kafka:** Es un sistema de mensajería publicador/suscriptor también conocido como un registro de log distribuido, diseñado para almacenar mensajes de forma ordenada y que estos puedan ser leídos de forma determinista. Es un data store muy utilizado en la industria y es una base para el procesamiento de datos en streaming.\n- **Stream de datos:** una secuencia ilimitada de datos ordenados e inmutables.\n- **Data inmutable:** data que no puede ser modificada una vez creada.\n- **Data store:** un lugar genérico donde se almacenan datos de cualquier tipo.\n- **Flink:** Es un framework de procesamiento de datos en streaming que difiere principalmente de otros como KafkaStreams o Faust por ser agnostico a la fuente de datos, siendo Kafka una fuente o destino de datos más y no su fuente principal.",
+      "text": "%md\n# Enriquecimiento de datos en tiempo real\n\nEn este workshop veremos como enriquecer datos de un stream en tiempo real, haciendo uso de Kafka como fuente de datos y una API externa que nos provee la información adicional que necesitamos.",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T18:59:32+0000",
+      "dateUpdated": "2021-04-21T12:52:53+0000",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -29,24 +29,26 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<h1>Enriquecimiento de datos en tiempo real</h1>\n<p>En este workshop veremos como enriquecer datos de un stream en tiempo real, haciendo uso de Kafka como fuente de datos y una API externa que nos provee la información adicional que necesitamos.</p>\n<h2>Conceptos</h2>\n<ul>\n<li><strong>kafka:</strong> Es un sistema de mensajería publicador/suscriptor también conocido como un registro de log distribuido, diseñado para almacenar mensajes de forma ordenada y que estos puedan ser leídos de forma determinista. Es un data store muy utilizado en la industria y es una base para el procesamiento de datos en streaming.</li>\n<li><strong>Stream de datos:</strong> una secuencia ilimitada de datos ordenados e inmutables.</li>\n<li><strong>Data inmutable:</strong> data que no puede ser modificada una vez creada.</li>\n<li><strong>Data store:</strong> un lugar genérico donde se almacenan datos de cualquier tipo.</li>\n<li><strong>Flink:</strong> Es un framework de procesamiento de datos en streaming que difiere principalmente de otros como KafkaStreams o Faust por ser agnostico a la fuente de datos, siendo Kafka una fuente o destino de datos más y no su fuente principal.</li>\n</ul>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<h1>Enriquecimiento de datos en tiempo real</h1>\n<p>En este workshop veremos como enriquecer datos de un stream en tiempo real, haciendo uso de Kafka como fuente de datos y una API externa que nos provee la información adicional que necesitamos.</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945172579_1735955373",
+      "jobName": "paragraph_1619009078294_1578410993",
       "id": "paragraph_1618494605137_215480015",
-      "dateCreated": "2021-04-20T18:59:32+0000",
-      "status": "READY",
+      "dateCreated": "2021-04-21T12:44:38+0000",
+      "status": "FINISHED",
       "focus": true,
-      "$$hashKey": "object:302"
+      "$$hashKey": "object:1245",
+      "dateFinished": "2021-04-21T12:52:47+0000",
+      "dateStarted": "2021-04-21T12:52:47+0000"
     },
     {
       "text": "%md\n# Agenda\n\n- Probar un flujo simple en flink, desde un arreglo de datos\n- Introducción al caso de uso\n- Extender el flujo con una petición remota\n- Crear un stream de datos usando Kafka\n- Consultar los datos enriquecidos desde el stream de Kafka",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T18:59:32+0000",
+      "dateUpdated": "2021-04-21T12:44:38+0000",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -79,16 +81,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945172586_664991756",
+      "jobName": "paragraph_1619009078295_382200621",
       "id": "paragraph_1618579646757_1149671721",
-      "dateCreated": "2021-04-20T18:59:32+0000",
+      "dateCreated": "2021-04-21T12:44:38+0000",
       "status": "READY",
-      "$$hashKey": "object:303"
+      "$$hashKey": "object:1246"
     },
     {
       "text": "%md\n## Flujo de datos en flink\n\nCreemos un stream finito para crear un flujo simple en flink.\n\nEl interprete de Flink para Zepellin tiene 6 formas de uso, destinadas a diferentes propósitos.\n\n%flink - Crea un ambiente de ejecución en Scala (ExecutionEnvironment/StreamExecutionEnvironment/BatchTableEnvironment/StreamTableEnvironment)\n%flink.pyflink - Crea un ambiente de ejecución en Python\n%flink.ipyflink - Crea un ambiente de ejecución en iPython\n%flink.ssql - Crea un ambiente de ejecución de stream sql\n%flink.bsql - Crea un ambiente de ejecución de batch sql\n\nVamos a usar 2 variables que crea Zepellin para el entorno de Flink en Scala (%flink):\n\nsenv (StreamExecutionEnvironment),\nbenv (ExecutionEnvironment)",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T18:59:32+0000",
+      "dateUpdated": "2021-04-21T12:44:38+0000",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -121,16 +123,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945172588_788760346",
+      "jobName": "paragraph_1619009078296_512829127",
       "id": "paragraph_1618580440345_1717905200",
-      "dateCreated": "2021-04-20T18:59:32+0000",
+      "dateCreated": "2021-04-21T12:44:38+0000",
       "status": "READY",
-      "$$hashKey": "object:304"
+      "$$hashKey": "object:1247"
     },
     {
       "text": "%flink\n\nval data = benv.fromElements(\"lider express\", \"walmart tech\", \"lider super\", \"walmart rules\", \"apache flink\", \"apache beam\")\ndata.flatMap(line => line.split(\"\\\\s\"))\n             .map(w => (w, 1))\n             .groupBy(0)\n             .sum(1)\n             .print()",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T19:25:52+0000",
+      "dateUpdated": "2021-04-21T12:44:38+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -153,18 +155,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945172593_1194380770",
+      "jobName": "paragraph_1619009078296_1626794984",
       "id": "paragraph_1618580883213_880277500",
-      "dateCreated": "2021-04-20T18:59:32+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:305",
-      "dateFinished": "2021-04-20T19:26:02+0000",
-      "dateStarted": "2021-04-20T19:25:52+0000"
+      "dateCreated": "2021-04-21T12:44:38+0000",
+      "status": "READY",
+      "$$hashKey": "object:1248"
     },
     {
       "text": "%md\n\n### Analizemos la salida del primer caso\n\n[Documentación de operadores de Flink](https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/)\n\n- En al línea 3 hemos creado un conjunto de datos a analizar, es un conjunto finito que tiende a comportarse como una dupla \"campo1 campo2\"\n- A este conjunto le definimos un flujo:\n  - En la línea 4 definimos que para cada línea del conjunto separamos las palabras y creamos un nuevo conjunto conformado sólo por palabras (eliminamos los espacios en blanco y pasamos de un conjunto de 6 elementos a uno de 12).\n  - En la lína 5 definimos que para cada palara se devuelva una dupla (palabra, conteo)\n  - En la línea 6 agrupamos por el índice 0 de la dupla (palabra)\n  - En la línea 7 hacemos una reducción de dimensiones, sumando por palabra el conteo\n  - Por último lazamos el resultado a pantalla",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T18:59:32+0000",
+      "dateUpdated": "2021-04-21T12:53:00+0000",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -179,7 +179,7 @@
         "fontSize": 9,
         "editorHide": true,
         "results": {},
-        "enabled": true
+        "enabled": false
       },
       "settings": {
         "params": {},
@@ -197,16 +197,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945172593_1138718378",
+      "jobName": "paragraph_1619009078296_651449615",
       "id": "paragraph_1618495125350_1979215751",
-      "dateCreated": "2021-04-20T18:59:32+0000",
+      "dateCreated": "2021-04-21T12:44:38+0000",
       "status": "READY",
-      "$$hashKey": "object:306"
+      "$$hashKey": "object:1249"
     },
     {
       "text": "%md\n---",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T18:59:32+0000",
+      "dateUpdated": "2021-04-21T12:44:38+0000",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -239,16 +239,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945172597_645509493",
+      "jobName": "paragraph_1619009078296_462292156",
       "id": "paragraph_1618590660943_1344566511",
-      "dateCreated": "2021-04-20T18:59:32+0000",
+      "dateCreated": "2021-04-21T12:44:38+0000",
       "status": "READY",
-      "$$hashKey": "object:307"
+      "$$hashKey": "object:1250"
     },
     {
       "text": "%md\n### Ejercicio\n\nEn este workshop vamos a trabajar en un concepto muy utilizado en la ingeniería de datos, que es el enriquecimiento de datos.\n\nVamos a tener una fuente de datos que simula el envío de transacciones que se generan al escanear un artículo en cada una da las cajas de una cadena de supermercados. Este mensaje tiene estos campos:\n```\n\"scanItem\": {\n    \"tienda\": 1,\n    \"codigo_de_barra\": \"ABC-584-000\",\n    \"cantidad\": 2,\n    \"precio\": 2178\n}\n```\nDada la gran cantidad de transacciones que están pasando, es recomendable que este mensaje sea lo más liviano posible, por lo que si queremos sacar información más entendible debemos crear un job que se ocupe de enriquecer este set de datos.\n\nPara esto vamos a utilizar un servicio que a partir de un código de barras nos entrega información del producto.\n\nEste servicio se encuentra en \"https://kafka-flink-workshop.herokuapp.com/api/v1/products/<codigo_de_barras>\" y al ser llamado con el codigo de barras nos entrega el siguiente mensaje:\n```\n\"producto\": {\n    \"codigo_de_barra\": \"ABC-540-000\",\n    \"nombre\": \"Juice - Apple Cider\",\n    \"departamento\": \"Outdoors\"\n}\n```",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T19:24:33+0000",
+      "dateUpdated": "2021-04-21T12:53:09+0000",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -263,22 +263,12 @@
         "fontSize": 9,
         "editorHide": true,
         "results": {},
-        "enabled": true
+        "enabled": false
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945172598_1219055223",
-      "id": "paragraph_1618580437320_1516215801",
-      "dateCreated": "2021-04-20T18:59:32+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:308",
-      "dateFinished": "2021-04-20T19:24:33+0000",
-      "dateStarted": "2021-04-20T19:24:33+0000",
       "results": {
         "code": "SUCCESS",
         "msg": [
@@ -287,12 +277,20 @@
             "data": "<div class=\"markdown-body\">\n<h3>Ejercicio</h3>\n<p>En este workshop vamos a trabajar en un concepto muy utilizado en la ingeniería de datos, que es el enriquecimiento de datos.</p>\n<p>Vamos a tener una fuente de datos que simula el envío de transacciones que se generan al escanear un artículo en cada una da las cajas de una cadena de supermercados. Este mensaje tiene estos campos:</p>\n<pre><code>&quot;scanItem&quot;: {\n    &quot;tienda&quot;: 1,\n    &quot;codigo_de_barra&quot;: &quot;ABC-584-000&quot;,\n    &quot;cantidad&quot;: 2,\n    &quot;precio&quot;: 2178\n}\n</code></pre>\n<p>Dada la gran cantidad de transacciones que están pasando, es recomendable que este mensaje sea lo más liviano posible, por lo que si queremos sacar información más entendible debemos crear un job que se ocupe de enriquecer este set de datos.</p>\n<p>Para esto vamos a utilizar un servicio que a partir de un código de barras nos entrega información del producto.</p>\n<p>Este servicio se encuentra en &ldquo;<a href=\"https://kafka-flink-workshop.herokuapp.com/api/v1/products/\">https://kafka-flink-workshop.herokuapp.com/api/v1/products/</a>&lt;codigo_de_barras&gt;&rdquo; y al ser llamado con el codigo de barras nos entrega el siguiente mensaje:</p>\n<pre><code>&quot;producto&quot;: {\n    &quot;codigo_de_barra&quot;: &quot;ABC-540-000&quot;,\n    &quot;nombre&quot;: &quot;Juice - Apple Cider&quot;,\n    &quot;departamento&quot;: &quot;Outdoors&quot;\n}\n</code></pre>\n\n</div>"
           }
         ]
-      }
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619009078297_149833867",
+      "id": "paragraph_1618580437320_1516215801",
+      "dateCreated": "2021-04-21T12:44:38+0000",
+      "status": "READY",
+      "$$hashKey": "object:1251"
     },
     {
-      "text": "%flink\n\nimport scala.util.parsing.json._\nimport com.google.gson.Gson\nimport scala.io.Source\nimport scala.io.Source.fromURL\nimport java.util.Properties\nimport org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer}\nimport org.apache.flink.streaming.util.serialization.SimpleStringSchema\nimport org.apache.flink.api.common.functions.MapFunction\n\nval KAFKA_SERVER = \"kafka:9092\"\nval KAFKA_CONSUMER_GROUP = \"workshopconsumer\"\nval SOURCE_TOPIC = \"scanned-item\"\nval SINK_TOPIC = \"enriched-item\"\n\n// TODO: definir estrutura de datos para el item scaneado\n// - store: Double\n// - barcode: String\n// - amount: Double\n// - price: Double\n@SerialVersionUID(100L)\nclass ScannedItem(...) extends Serializable {}\n\n// TODO: definir estructura de datos para el item enriquecido\n// - name: String\n// - department: String\n// - barcode: String\n// - amount: Double\n// - store: Double\n@SerialVersionUID(100L)\nclass EnrichedItem(...) extends Serializable {}\n\n// TODO: definir la configurción del productor o sink\nval producerProperties = new Properties\nproducerProperties.setProperty(\"\", KAFKA_SERVER)\n\nval producer = new FlinkKafkaProducer[String](\n    SINK_TOPIC,\n    new SimpleStringSchema(),\n    producerProperties\n)\n\n// TODO: definir la configuracion del consumidor o source\nval consumerProperties = new Properties()\nconsumerProperties.setProperty(\"\", KAFKA_SERVER)\nconsumerProperties.setProperty(\"\", KAFKA_CONSUMER_GROUP)\n\nval stream = senv.addSource(new FlinkKafkaConsumer[String](\n        SOURCE_TOPIC,\n        new SimpleStringSchema(),\n        consumerProperties)\n    )\n    .map((scannedItemJSON) => {\n        // TODO: parsear el json del scannedItem\n        // - Convertir el item json en la estructura ScannedItem\n        // ...\n        scannedItem\n    })\n    .map((item) => {\n        // TODO: enriquecer el item escaneado\n        // - Pedir la información adicional del item a su API\n        // - Convertir el ScannedItem en EnrichItem\n        // ...\n        enrichedItem\n    })\n    .map((item) => {\n        val gson = new Gson()\n        gson.toJson(item)\n    })\n\nstream.addSink(producer)\n\n\nsenv.execute(\"data-enrichment\")",
+      "text": "%flink\n\nimport scala.util.parsing.json._\nimport com.google.gson.Gson\nimport scala.io.Source\nimport scala.io.Source.fromURL\nimport java.util.Properties\nimport org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer}\nimport org.apache.flink.streaming.util.serialization.SimpleStringSchema\nimport org.apache.flink.api.common.functions.MapFunction\n// documentacion apache kafka connector https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html\n// documentación librería gson https://github.com/google/gson\n\nval KAFKA_SERVER = \"kafka:9092\"\nval KAFKA_CONSUMER_GROUP = \"workshopconsumer\"\nval SOURCE_TOPIC = \"scanned-item\"\nval SINK_TOPIC = \"enriched-item\"\n\n// TODO: definir estrutura de datos para el item scaneado\n// - store: Double\n// - barcode: String\n// - amount: Double\n// - price: Double\n@SerialVersionUID(100L)\nclass ScannedItem(...) extends Serializable {}\n\n// TODO: definir estructura de datos para el item enriquecido\n// - name: String\n// - department: String\n// - barcode: String\n// - amount: Double\n// - store: Double\n@SerialVersionUID(100L)\nclass EnrichedItem(...) extends Serializable {}\n\n// TODO: definir la configurción del productor o sink\nval producerProperties = new Properties\nproducerProperties.setProperty(\"\", KAFKA_SERVER)\n\nval producer = new FlinkKafkaProducer[String](\n    SINK_TOPIC,\n    new SimpleStringSchema(),\n    producerProperties\n)\n\n// TODO: definir la configuracion del consumidor o source\nval consumerProperties = new Properties()\nconsumerProperties.setProperty(\"\", KAFKA_SERVER)\nconsumerProperties.setProperty(\"\", KAFKA_CONSUMER_GROUP)\n\nval stream = senv.addSource(new FlinkKafkaConsumer[String](\n        SOURCE_TOPIC,\n        new SimpleStringSchema(),\n        consumerProperties)\n    )\n    .map((scannedItemJSON) => {\n        // TODO: parsear el json del scannedItem\n        // - Convertir el item json en la estructura ScannedItem\n        // ...\n        scannedItem\n    })\n    .map((item) => {\n        // TODO: enriquecer el item escaneado\n        // - Pedir la información adicional del item a su API\n        // - Convertir el ScannedItem en EnrichItem\n        // ...\n        enrichedItem\n    })\n    .map((item) => {\n        val gson = new Gson()\n        gson.toJson(item)\n    })\n    \n// documentación de la lista de operadores en Flink https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/\n\nstream.addSink(producer)\n\n\nsenv.execute(\"data-enrichment\")",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T19:54:18+0000",
+      "dateUpdated": "2021-04-21T12:51:08+0000",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -314,31 +312,29 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945172600_1311377662",
+      "jobName": "paragraph_1619009078297_1671814897",
       "id": "paragraph_1618934937455_1329533557",
-      "dateCreated": "2021-04-20T18:59:32+0000",
-      "status": "ABORT",
-      "$$hashKey": "object:309",
-      "dateFinished": "2021-04-20T19:19:10+0000",
-      "dateStarted": "2021-04-20T19:17:51+0000"
+      "dateCreated": "2021-04-21T12:44:38+0000",
+      "status": "READY",
+      "$$hashKey": "object:1252"
     },
     {
       "text": "%flink\n",
       "user": "anonymous",
-      "dateUpdated": "2021-04-20T19:03:08+0000",
+      "dateUpdated": "2021-04-21T12:44:38+0000",
       "progress": 0,
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -347,16 +343,15 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618945388418_172405627",
+      "jobName": "paragraph_1619009078297_273626584",
       "id": "paragraph_1618945388418_172405627",
-      "dateCreated": "2021-04-20T19:03:08+0000",
+      "dateCreated": "2021-04-21T12:44:38+0000",
       "status": "READY",
-      "focus": true,
-      "$$hashKey": "object:916"
+      "$$hashKey": "object:1253"
     }
   ],
   "name": "Flink Kafka Workshop",
-  "id": "2G5JNV28N",
+  "id": "2G4WVECTU",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0",
   "noteParams": {},
