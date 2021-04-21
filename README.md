@@ -11,24 +11,25 @@ Este repositorio contiene los pasos necesarios para probar un flujo de enriqueci
 - Disponible al menos 4 Gb de memoria libres
 - [Git](https://git-scm.com/downloads)
 
-> Los comando utilizados en este repositorio están diseñados para trabajar
-en un sistema Linux u OSX
+> Los comando utilizados en este repositorio están diseñados para trabajar en un sistema Linux u OSX
 
 ### Ejecución en local
 
-Ejecuta `./start.sh`. Una vez el script muestre que está listo para comenzar
-entra desde tu navegador a `http://localhost:8080` y `http:localhost:8081`
-ambas direcciones se van a utilizar durante el workshop.
+Ejecuta `./start.sh`. Una vez el script muestre que está listo para comenzar entra desde tu navegador a `http://localhost:8080`.
 
-> Si tienes problemas con la ejecución del script, revisa los permisos del 
-archivo `chmod +x ./start.sh`
+> Si tienes problemas con la ejecución del script, revisa los permisos del  archivo `chmod +x ./start.sh`
 
 ### Contenido
 
-Este workshop hace uso de [Zepellin](https://zeppelin.apache.org) como sistema para la ejecución de los pasos del taller, por lo que ,su contenido esta expresado dentro de un notebook llamado `Flink Kafka Workshop`
+Este workshop hace uso de [Zepellin](https://zeppelin.apache.org) como sistema para la ejecución de los pasos del taller, por lo que ,su contenido esta expresado dentro de un notebook llamado `Flink Kafka Workshop`.
 
 #### Comandos utilizados
-- `docker exec -it esteesellugar-workshop-flink_kafka_1 /bin/bash` para el acceso al contenedor de kafka
+Para interactuar con Kafka, primero conéctate al contenedor de Kafka:
+```
+docker exec -it kafka /bin/bash
+```
+
+Desde el contenedor de Kafka, podrás correr los siguientes comandos:
 - `kafka-topics --bootstrap-server kafka:9092 --list` Para listar los tópicos en kafka
 - `kafka-topics --bootstrap-server kafka:9092 --create --topic enriched-item` Para crear un tópico en kafka
 - `kafka-console-consumer --bootstrap-server kafka:9092 --topic enriched-item --from-beginning` Para consumir desde un tópico en kafka
