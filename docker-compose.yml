@@ -23,5 +23,13 @@ services:
     - kafka
     depends_on:
     - kafka
+  druid:
+    image: apache/druid:0.20.2
+    networks: 
+    - workshop
+    links:
+    - kafka
+    ports:
+    - "8888:8888"
 networks:
     workshop: {}
