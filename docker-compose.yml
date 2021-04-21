@@ -45,6 +45,11 @@ services:
     container_name: ksqldb-cli
     depends_on:
       - ksqldb
+    networks: 
+    - workshop
+    links:
+    - kafka
+    - ksqldb
     entrypoint: /bin/sh
     tty: true
 
