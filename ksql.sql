@@ -6,7 +6,7 @@ CREATE STREAM enriched_items_by_department (
     amount INT,
     store INT
 ) WITH (
-    KAFKA_TOPIC='enrich-item',
+    KAFKA_TOPIC='enriched-item',
     VALUE_FORMAT='JSON'
 );
 
