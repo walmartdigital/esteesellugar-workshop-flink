@@ -2,6 +2,7 @@ version: "3.9"
 services:
   zepellin:
     build: .
+    container_name: zepellin
     ports:
     - "8080:8080"
     - "8081:8081"
@@ -13,6 +14,7 @@ services:
     - kafka
   kafka:
     image: lensesio/fast-data-dev
+    container_name: kafka
     networks:
     - workshop
   producer:
@@ -23,13 +25,28 @@ services:
     - kafka
     depends_on:
     - kafka
-  druid:
-    image: apache/druid:0.20.2
+  ksqldb:
+    image: confluentinc/ksqldb-server:0.15.0
+    container_name: ksqldb
+    ports:
+      - 8088:8088
     networks: 
     - workshop
     links:
     - kafka
-    ports:
-    - "8888:8888"
+    depends_on:
+    - kafka
+    environment:
+      - KSQL_BOOTSTRAP_SERVERS=kafka:9092
+      - KSQL_LISTENERS=http://0.0.0.0:8088/
+      - KSQL_KSQL_SERVICE_ID=ksql_service
+  ksqldb-cli:
+    image: confluentinc/ksqldb-cli:0.17.0
+    container_name: ksqldb-cli
+    depends_on:
+      - ksqldb
+    entrypoint: /bin/sh
+    tty: true
+
 networks:
     workshop: {}
