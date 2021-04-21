@@ -27,7 +27,7 @@ archivo `chmod +x ./start.sh`
 
 ### Contenido
 
-Este workshop hace uso de [Zepellin](https://zeppelin.apache.org) como sistema para la ejecución de los pasos del taller, por lo que ,su contenido esta expresado dentro de un notebook llamado `flink-kafka-workshop1`
+Este workshop hace uso de [Zepellin](https://zeppelin.apache.org) como sistema para la ejecución de los pasos del taller, por lo que ,su contenido esta expresado dentro de un notebook llamado `Flink Kafka Workshop`
 
 #### Comandos utilizados
 - `docker exec -it wrokshop-real-time-enrichment_kafka_1 /bin/bash` para el acceso al contenedor de kafka
