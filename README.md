@@ -2,11 +2,9 @@
 
 ## Enriquecimiento de datos en tiempo real
 
-Este repositorio contiene los pasos necesarios para probar
-un flujo de enriquecimiento de datos en tiempo real con
-flink y Kafka.
+Este repositorio contiene los pasos necesarios para probar un flujo de enriquecimiento de datos en tiempo real con Flink y Kafka.
 
-### Prerrequisitos
+### Prerequisitos
 
 - [Docker Engine - Community v20.10.5](https://docs.docker.com/get-docker/)
 - [Docker compose](https://docs.docker.com/compose/install/) - generalmente disponible al instalar docker engine
