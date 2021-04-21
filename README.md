@@ -35,7 +35,7 @@ Este workshop hace uso de [Zepellin](https://zeppelin.apache.org) como sistema p
 - `kafka-topics --bootstrap-server kafka:9092 --create --topic enriched-item` Para crear un tópico en kafka
 - `kafka-console-consumer --bootstrap-server kafka:9092 --topic enriched-item --from-beginning` Para consumir desde un tópico en kafka
 - `kafka-console-producer --bootstrap-server kafka:9092 --topic test` Para producir datos a un tópico en kafka
-- `docker exec -it ksqldb-cli ksql http://ksql:8088` Para correr ksqldb cli
+- `docker exec -it ksqldb-cli ksql http://ksqldb:8088` Para correr ksqldb cli
 
 ### Ejercicio
 
