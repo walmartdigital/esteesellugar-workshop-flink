@@ -25,33 +25,34 @@ services:
     - kafka
     depends_on:
     - kafka
-  ksqldb:
-    image: confluentinc/ksqldb-server:0.15.0
-    container_name: ksqldb
-    ports:
-      - 8088:8088
-    networks: 
-    - workshop
-    links:
-    - kafka
-    depends_on:
-    - kafka
-    environment:
-      - KSQL_BOOTSTRAP_SERVERS=kafka:9092
-      - KSQL_LISTENERS=http://0.0.0.0:8088/
-      - KSQL_KSQL_SERVICE_ID=ksql_service
-  ksqldb-cli:
-    image: confluentinc/ksqldb-cli:0.17.0
-    container_name: ksqldb-cli
-    depends_on:
-      - ksqldb
-    networks: 
-    - workshop
-    links:
-    - kafka
-    - ksqldb
-    entrypoint: /bin/sh
-    tty: true
+  # descomenta esta inea para correr ksql db
+  # ksqldb:
+  #   image: confluentinc/ksqldb-server:0.15.0
+  #   container_name: ksqldb
+  #   ports:
+  #     - 8088:8088
+  #   networks: 
+  #   - workshop
+  #   links:
+  #   - kafka
+  #   depends_on:
+  #   - kafka
+  #   environment:
+  #     - KSQL_BOOTSTRAP_SERVERS=kafka:9092
+  #     - KSQL_LISTENERS=http://0.0.0.0:8088/
+  #     - KSQL_KSQL_SERVICE_ID=ksql_service
+  # ksqldb-cli:
+  #   image: confluentinc/ksqldb-cli:0.17.0
+  #   container_name: ksqldb-cli
+  #   depends_on:
+  #     - ksqldb
+  #   networks: 
+  #   - workshop
+  #   links:
+  #   - kafka
+  #   - ksqldb
+  #   entrypoint: /bin/sh
+  #   tty: true
 
 networks:
     workshop: {}
